@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://hatchling13.github.io/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://hatchling13.github.io/auto-build-static-site-with-travis-ci/</loc>
+            
+                <lastmod>2020-04-06</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://hatchling13.github.io/first-article/</loc>
+            
+                <lastmod>2020-03-10</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://hatchling13.github.io/four-months-left/</loc>
+            
+                <lastmod>2020-03-16</lastmod>
+            
+        </url>
+    
+</urlset>
