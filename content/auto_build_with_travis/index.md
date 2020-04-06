@@ -40,12 +40,12 @@ deploy:
 저장소를 가져와서 빌드 후 실행하는 것보다는 미리 만들어진 바이너리를 들고오는 게 더 싸게 먹힐 것이다. 절대 직접 빌드해봤는데 깨져서 그런 것이 아니다. 아무튼 나머지 설정은 [이 문서](https://docs.travis-ci.com/user/deployment/pages/)를 보고 설정했다. 빌드되기 전의 디렉토리에 이 설정 파일을 넣고 미리 GitHub에 push해둔다. 이제 GitHub 토큰을 발급받아 Travis CI의 내 계정에 등록시켜주면 빌드가 실행될 것이다. [이 문서](https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-github)를 참조하니 각 저장소별로 travis가 돌도록 할 수도 있는 모양이다. 토큰은 개인 계정 설정란의 개발자 설정 쪽에 가면 발급 메뉴가 있다. 저장소 관련 체크박스를 체크한 다음 나온 토큰을 Travis 내의 해당 저장소 설정란에 적용시켜주면 된다.
 
 ### 해치웠나?
-![failed](./error.png)
+![failed](error.png)
 과정을 살펴보니 받는 건 제대로 받았는데 `libssl.so.1.1`이 없어서 못 돌리시겠단다. 무엇을 암시하는 것이지? 혹시 `OpenSSL` 관련 의존성이 안 깔려있는 건가 싶어 `before_install` 단계에서 설치 명령을 줘봤는데 이미 채-신버전으로 들고계시단다. 무엇이 문제일까? 답은 그 놈의 최신 버전이 도대체가 최신이 맞긴 한가의 여부에 있었다. [문서](https://docs.travis-ci.com/user/reference/linux/#overview)에 따르면 Travis CI 빌드머신은 리눅스의 경우 `Ubuntu Xenial 16.04`를 기본 환경으로 지원한다. 그리고 해당 버전에서 `OpenSSL`의 최신 버전은 `1.0.2g`이다. 엿을 먹은 이유가 있었다. [패키지 정보](https://packages.ubuntu.com/search?keywords=openssl)를 찾아보니 `Bionic 18.04`부터 `1.1` 이상의 버전이 최신으로 잡혀있다. [이 문서](https://docs.travis-ci.com/user/reference/bionic/#using-ubuntu-1804-bionic-beaver)에 적힌 대로 배포판 버전을 올려주었다.
 ```
 dist: bionic
 ```
-![passing](./success.png)
+![passing](success.png)
 문제없이 빌드가 끝난 모습이다. 설정 파일에 명시해놓은 저장소에 가보니 잘 커밋된 것을 확인할 수 있었다. 아이고 한 시름 덜었다 야.
 
 ### 정리
