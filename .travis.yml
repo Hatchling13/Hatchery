@@ -1,5 +1,5 @@
 dist: bionic
-language: minimal
+language: generic
 install:
   - wget https://github.com/getzola/zola/releases/download/v0.10.1/zola-v0.10.1-x86_64-unknown-linux-gnu.tar.gz -O zola.tar.gz
   - tar -zxvf zola.tar.gz -C .
