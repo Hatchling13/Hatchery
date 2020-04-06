@@ -1,6 +1,6 @@
 install:
   curl https://github.com/getzola/zola/releases/download/v0.10.1/zola-v0.10.1-x86_64-unknown-linux-gnu.tar.gz | tar -xz
-  zola --version
+  ./zola --version
 script:
   zola build
 deploy:
